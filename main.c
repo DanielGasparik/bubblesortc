@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <math.h>
-int descendingBubbleSort(int arr[],int n){//written using pointers
-int temporary;
-int *p,*q;
+int descendingBubbleSort(int arr[],int n){//written using pointers,
+int temporary;//temporary storage for a number
+int *p,*q;//pointers as an alternative to index using 2d array bubble sort
 for(p=arr;p<arr+n;p++){
     for(q=arr;q<arr+n-1;q++){
         if(*p>*q){
@@ -22,13 +22,13 @@ for(p=arr;p<arr+n;p++){
 printf("]");
 return 0;
 }
-int ascendingBubbleSort(int arr[],n){//written using indexes
+int ascendingBubbleSort(int arr[],int n){//written using indexes
     int i,j;
     int temporary;
     for(i=0;i<n;i++){
-        for(j=0;j<n+1;j++){
+        for(j=0;j<n-1;j++){
             if(arr[i]<arr[j]){
-                arr[i]=temporary;
+                temporary=arr[i];
                 arr[i]=arr[j];
                 arr[j]=temporary;
 
@@ -38,7 +38,7 @@ int ascendingBubbleSort(int arr[],n){//written using indexes
 
     }
     printf("Worst case complexity is O(n^2)=%.0f\n",pow(n,2));
-    printf("Bubble sorted array is: [ ");
+    printf("Bubble sorted array is: [");
     for(i=0;i<n;i++){
         printf("%d,",arr[i]);
     }
@@ -48,17 +48,17 @@ int ascendingBubbleSort(int arr[],n){//written using indexes
 }
 int main() {
     int input,n;
-    //how many numbers in array
+    //variable n stores how many numbers will be in an array
     printf("Decide how many numbers I will be sorting\n");
     scanf("%d",&n);
     int arr[n];
-    printf("\nPlease input the siad numbers in");
+    printf("Please input the said numbers in\n");
     //load them into an array
     for(int i=0;i<n;i++){
         scanf("%d",&arr[i]);
     }
-    printf("\nDecide which bubble sort you want to do 'a' for ascending ,'d' for descending or 'e' if you want to end the program");
-    while((input=getchar())!='e') {
+    printf("Decide which bubble sort you want to do: 'a' for ascending ,'d' for descending or 'e' if you want to end the program.");
+    while((input=getchar())!='e') {//console command switch
         switch (input) {
             case 'a':
                 ascendingBubbleSort(arr, n);
