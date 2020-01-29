@@ -1,17 +1,24 @@
 #include <stdio.h>
+#include <math.h>
 int ascendingBubbleSort(int *arr,int n){
 int i=0,j=0,temporary;
 for(i;i<n;i++){
-    for(j;j<n-i;j++){
+    for(j;j<n-1;j++){
         if(arr[i]>arr[j]){
+            arr[i]=temporary;
+            arr[i]=arr[j];
+            arr[j]=temporary;
 
 
         }
     }
 }
+printf("Worst case complexity is O(n^2)=%d\n",pow(n,2));
+printf("Bubble sorted array is: [");
 for(i=0;i<n;i++){
-    printf("%d",arr[i]);
+    printf("%d ",arr[i]);
 }
+printf("]");
 
 }
 int descendingBubbleSort(int *arr,n){
